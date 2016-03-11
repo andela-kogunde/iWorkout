@@ -10,6 +10,9 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        // Needed for jUnit4 support.
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
