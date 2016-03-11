@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,5 +9,149 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivityFragment"
     tools:showIn="@layout/activity_main">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/iworkout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1">
+
+                    <me.itangqi.waveloadingview.WaveLoadingView
+                        android:id="@+id/totalPushUps"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        app:wlv_borderColor="@color/colorAccent"
+                        app:wlv_borderWidth="2dp"
+                        app:wlv_progressValue="70"
+                        app:wlv_shapeType="circle"
+                        app:wlv_titleBottom="Total Push-Ups"
+                        app:wlv_titleBottomColor="@color/colorPrimaryText"
+                        app:wlv_titleBottomSize="12sp"
+                        app:wlv_titleCenter="241"
+                        app:wlv_titleCenterColor="@color/colorPrimaryText"
+                        app:wlv_titleCenterSize="24sp"
+                        app:wlv_waveAmplitude="70"
+                        app:wlv_waveColor="@color/colorAccent" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1">
+
+                    <me.itangqi.waveloadingview.WaveLoadingView
+                        android:id="@+id/todaysPushUps"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        app:wlv_borderColor="@color/blue"
+                        app:wlv_borderWidth="2dp"
+                        app:wlv_progressValue="43"
+                        app:wlv_shapeType="circle"
+                        app:wlv_titleBottom="Today's Push-Ups"
+                        app:wlv_titleBottomColor="@color/colorPrimaryText"
+                        app:wlv_titleBottomSize="12sp"
+                        app:wlv_titleCenter="23"
+                        app:wlv_titleCenterColor="@color/colorPrimaryText"
+                        app:wlv_titleCenterSize="24sp"
+                        app:wlv_waveAmplitude="60"
+                        app:wlv_waveColor="@color/blue" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1">
+
+                    <me.itangqi.waveloadingview.WaveLoadingView
+                        android:id="@+id/caloriesBurned"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        app:wlv_borderColor="@color/red"
+                        app:wlv_borderWidth="2dp"
+                        app:wlv_progressValue="7"
+                        app:wlv_shapeType="circle"
+                        app:wlv_titleBottom="Calories Burned"
+                        app:wlv_titleBottomColor="@color/colorPrimaryText"
+                        app:wlv_titleBottomSize="12sp"
+                        app:wlv_titleCenter="03"
+                        app:wlv_titleCenterColor="@color/colorPrimaryText"
+                        app:wlv_titleCenterSize="24sp"
+                        app:wlv_waveAmplitude="30"
+                        app:wlv_waveColor="@color/red" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1">
+
+                    <me.itangqi.waveloadingview.WaveLoadingView
+                        android:id="@+id/energyGained"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        app:wlv_borderColor="@color/green"
+                        app:wlv_borderWidth="2dp"
+                        app:wlv_progressValue="18"
+                        app:wlv_shapeType="circle"
+                        app:wlv_titleBottom="Energies Gained"
+                        app:wlv_titleBottomColor="@color/colorPrimaryText"
+                        app:wlv_titleBottomSize="12sp"
+                        app:wlv_titleCenter="10"
+                        app:wlv_titleCenterColor="@color/colorPrimaryText"
+                        app:wlv_titleCenterSize="24sp"
+                        app:wlv_waveAmplitude="50"
+                        app:wlv_waveColor="@color/green" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
