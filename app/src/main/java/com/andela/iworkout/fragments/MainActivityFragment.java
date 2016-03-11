@@ -8,9 +8,6 @@ import android.view.ViewGroup;
 
 import com.andela.iworkout.R;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {
