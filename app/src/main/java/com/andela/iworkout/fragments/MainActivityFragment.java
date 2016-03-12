@@ -8,12 +8,20 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.andela.iworkout.R;
+import com.andela.iworkout.activities.MyApplication;
+import com.andela.iworkout.repository.DayRepository;
+import com.andela.iworkout.repository.DayRepositoryImplementation;
+import com.andela.iworkout.repository.WorkoutManager;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {
+    }
+
+    private WorkoutManager getWorkoutManager(){
+        return MyApplication.getWorkoutManager();
     }
 
     @Override
@@ -25,7 +33,6 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         initializeComponent(view);
     }
 
@@ -35,6 +42,20 @@ public class MainActivityFragment extends Fragment {
         WaveLoadingView caloriesBurned = (WaveLoadingView) view.findViewById(R.id.caloriesBurned);
         WaveLoadingView energyGained = (WaveLoadingView) view.findViewById(R.id.energyGained);
 
+        totalPushUps.setCenterTitle(String.valueOf(getWorkoutManager().totalPushUps()));
+        totalPushUps.setAmplitudeRatio(70);
+        totalPushUps.setProgressValue(70);
 
+        todaysPushUps.setCenterTitle(String.valueOf(getWorkoutManager().todaysPushUps()));
+        todaysPushUps.setAmplitudeRatio(70);
+        todaysPushUps.setProgressValue(70);
+
+        caloriesBurned.setCenterTitle(String.valueOf(getWorkoutManager().caloriesBurned()));
+        caloriesBurned.setAmplitudeRatio(10);
+        caloriesBurned.setProgressValue(10);
+
+        energyGained.setCenterTitle(String.valueOf(getWorkoutManager().energyGained()));
+        energyGained.setAmplitudeRatio(40);
+        energyGained.setProgressValue(40);
     }
 }
