@@ -34,20 +34,24 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/workout"
                 style="?android:attr/buttonBarButtonStyle"
                 android:textColor="@color/icons"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="launchWorkout"
                 android:background="@drawable/blue_background"
                 android:text="Workout" />
 
             <Button
+                android:id="@+id/analytics"
                 style="?android:attr/buttonBarButtonStyle"
                 android:textColor="@color/icons"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="launchAnalytics"
                 android:background="@drawable/blue_background"
                 android:text="Analytics" />
 
