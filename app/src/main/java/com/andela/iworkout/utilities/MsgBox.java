@@ -3,8 +3,13 @@ package com.andela.iworkout.utilities;
 
 import android.content.Context;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.andela.iworkout.R;
 
 /**
  * author: Kehinde Ogunde
@@ -29,5 +34,17 @@ public class MsgBox {
 
         snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction(action, clickListener);
         snackbar.show();
+    }
+
+    public static AlertDialog show(Context context, String message, View.OnClickListener listener, boolean cancelable) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+        View dialogView = LayoutInflater.from(context).inflate(R.layout.completed_pushup, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setCancelable(cancelable);
+
+        TextView messageView = (TextView) dialogView.findViewById(R.id.message);
+        messageView.setText(message);
+        dialogView.findViewById(R.id.gotit).setOnClickListener(listener);
+        return dialogBuilder.create();
     }
 }
