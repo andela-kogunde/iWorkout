@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.andela.iworkout.R;
+import com.andela.iworkout.utilities.Launcher;
+import com.andela.iworkout.utilities.MsgBox;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
+                MsgBox.show(MainActivity.this, "Settings Clicked");
                 return true;
         }
 
@@ -41,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchWorkout(View view) {
-        
+        Launcher.launch(this, WorkoutActivity.class);
     }
 
     public void launchAnalytics(View view) {
-
+        MsgBox.show(this, "Launch Analytics Screen");
     }
 }
