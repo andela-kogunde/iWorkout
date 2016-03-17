@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="launchWorkout"
-                android:background="@drawable/blue_background"
+                android:background="@drawable/on_button_clicked"
                 android:text="Workout" />
 
             <Button
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="launchAnalytics"
-                android:background="@drawable/blue_background"
+                android:background="@drawable/on_button_clicked"
                 android:text="Analytics" />
 
         </LinearLayout>
