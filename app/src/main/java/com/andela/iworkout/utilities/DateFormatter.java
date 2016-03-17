@@ -10,4 +10,16 @@ public class DateFormatter {
         Date date = new Date(milliSeconds);
         return simpleDateFormat.format(date);
     }
+
+    public static String getReadableTime(long milliSeconds) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
+        Date date = new Date(milliSeconds);
+        return simpleDateFormat.format(date);
+    }
+
+    public static String getReadableSeconds(long milliSeconds) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss");
+        Date date = new Date(milliSeconds);
+        return simpleDateFormat.format(date);
+    }
 }
