@@ -1,8 +1,12 @@
 package com.andela.iworkout.utilities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.andela.iworkout.activities.MainActivity;
+import com.andela.iworkout.activities.WorkoutActivity;
 
 public class Launcher {
     public static final String TRANSPORT = "transport";
@@ -18,4 +22,8 @@ public class Launcher {
         context.startActivity(intent);
     }
 
+    public static void launchForResult(Activity activity, Class<?> activityClass, int CODE) {
+        Intent intent = new Intent(activity, activityClass);
+        activity.startActivityForResult(intent, CODE);
+    }
 }
