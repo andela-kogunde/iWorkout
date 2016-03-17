@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/icons"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="1dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:drawableTop="@drawable/gift"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/colorSecondaryText"
+        android:text="@string/congratulations" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/gotit"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/on_button_light_clicked"
+            android:text="Got it!"
+            android:textColor="@color/icons" />
+
+    </LinearLayout>
+
+</LinearLayout>
