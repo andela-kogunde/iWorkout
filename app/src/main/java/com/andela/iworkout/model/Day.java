@@ -6,6 +6,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Day extends RealmObject {
     private int pushups;
+    private int timeTaken;
 
     @PrimaryKey
     private String thedate;
@@ -24,5 +25,13 @@ public class Day extends RealmObject {
 
     public void setThedate(String thedate) {
         this.thedate = thedate;
+    }
+
+    public int getTimeTaken() {
+        return timeTaken;
+    }
+
+    public void setTimeTaken(int timeTaken) {
+        this.timeTaken = timeTaken;
     }
 }
