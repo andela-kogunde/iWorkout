@@ -2,6 +2,7 @@ package com.andela.iworkout.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +27,10 @@ public class WorkoutActivityFragment extends Fragment {
 
     private TimeCounter timeCounter;
     private PushUpManager pushUpManager;
+    private AlertDialog alertDialog;
     private int counter = 0;
     private int pushUpGoal = 0;
+    private int timeTaken = 0;
     private Day day;
 
     public WorkoutActivityFragment() {
@@ -97,6 +100,7 @@ public class WorkoutActivityFragment extends Fragment {
             timeCounter.countUp(SECONDS, new OnTimerTickListener() {
                 @Override
                 public void onTick(long millisecond) {
+                    timeTaken++;
                     timeKeeper.setText(getTime(millisecond));
                 }
 
@@ -109,6 +113,7 @@ public class WorkoutActivityFragment extends Fragment {
             timeCounter.countDown(timeTill, SECONDS, new OnTimerTickListener() {
                 @Override
                 public void onTick(long millisecond) {
+                    timeTaken++;
                     timeKeeper.setText(getTime(millisecond));
                 }
 
@@ -123,6 +128,7 @@ public class WorkoutActivityFragment extends Fragment {
 
     public void startWorkout() {
         counter = 0;
+        timeTaken = 0;
         timeCounter.start();
         setPushUpManager();
     }
@@ -130,8 +136,28 @@ public class WorkoutActivityFragment extends Fragment {
     public void stopWorkout() {
         cancelWorkout();
 
+        savePushUp();
+
+        displayDialog();
+
+        //PLAY SOUND
+    }
+
+    private void displayDialog() {
+        alertDialog = MsgBox.show(getContext(), getString(R.string.congratulations), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+                getActivity().finish();
+            }
+        }, false);
+        alertDialog.show();
+    }
+
+    private void savePushUp() {
         day.setThedate(DateFormatter.getReadableDate(System.currentTimeMillis()));
         day.setPushups(counter - 1);
+        day.setTimeTaken(timeTaken);
         getWorkoutManager().savePushUps(day);
     }
 
@@ -143,9 +169,6 @@ public class WorkoutActivityFragment extends Fragment {
     }
 
     private void endPushupSession() {
-        //PUSHUP PREVIEW.
-        //PLAY SOUND
-
         WorkoutActivity workoutActivity = (WorkoutActivity) getActivity();
         workoutActivity.pressButton();
     }
@@ -161,5 +184,4 @@ public class WorkoutActivityFragment extends Fragment {
     private WorkoutManager getWorkoutManager() {
         return MyApplication.getWorkoutManager();
     }
-
 }
