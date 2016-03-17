@@ -1,5 +1,6 @@
 package com.andela.iworkout.fragments;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,10 @@ import com.andela.iworkout.repository.WorkoutManager;
 import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class MainActivityFragment extends Fragment {
+    WaveLoadingView totalPushUps;
+    WaveLoadingView todaysPushUps;
+    WaveLoadingView caloriesBurned;
+    WaveLoadingView energyGained;
 
     public MainActivityFragment() {
     }
@@ -34,14 +39,17 @@ public class MainActivityFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initializeComponent(view);
+        updatePushups();
     }
 
     private void initializeComponent(View view) {
-        WaveLoadingView totalPushUps = (WaveLoadingView) view.findViewById(R.id.totalPushUps);
-        WaveLoadingView todaysPushUps = (WaveLoadingView) view.findViewById(R.id.todaysPushUps);
-        WaveLoadingView caloriesBurned = (WaveLoadingView) view.findViewById(R.id.caloriesBurned);
-        WaveLoadingView energyGained = (WaveLoadingView) view.findViewById(R.id.energyGained);
+        totalPushUps = (WaveLoadingView) view.findViewById(R.id.totalPushUps);
+        todaysPushUps = (WaveLoadingView) view.findViewById(R.id.todaysPushUps);
+        caloriesBurned = (WaveLoadingView) view.findViewById(R.id.caloriesBurned);
+        energyGained = (WaveLoadingView) view.findViewById(R.id.energyGained);
+    }
 
+    public void updatePushups(){
         totalPushUps.setCenterTitle(String.valueOf(getWorkoutManager().totalPushUps()));
         totalPushUps.setAmplitudeRatio(70);
         totalPushUps.setProgressValue(70);

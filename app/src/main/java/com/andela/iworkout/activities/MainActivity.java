@@ -1,5 +1,6 @@
 package com.andela.iworkout.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.andela.iworkout.R;
+import com.andela.iworkout.fragments.MainActivityFragment;
+import com.andela.iworkout.fragments.WorkoutActivityFragment;
 import com.andela.iworkout.utilities.Launcher;
 import com.andela.iworkout.utilities.MsgBox;
 
@@ -44,10 +47,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchWorkout(View view) {
-        Launcher.launch(this, WorkoutActivity.class);
+        Launcher.launchForResult(this, WorkoutActivity.class, 1);
     }
 
     public void launchAnalytics(View view) {
         MsgBox.show(this, "Launch Analytics Screen");
+    }
+
+    private MainActivityFragment getDashboard() {
+        return (MainActivityFragment) getSupportFragmentManager()
+                .getFragments().get(0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        getDashboard().updatePushups();
     }
 }
