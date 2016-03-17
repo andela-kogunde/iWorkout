@@ -7,4 +7,5 @@
     <string name="timeLabel">TIME</string>
     <string name="timeInit">00</string>
     <string name="pushupInit">0</string>
+    <string name="congratulations">Congratulations</string>
 </resources>
