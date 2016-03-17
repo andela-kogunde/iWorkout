@@ -5,6 +5,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/iworkout" />
+            android:src="@drawable/iworkout_splash" />
     </item>
 </layer-list>
