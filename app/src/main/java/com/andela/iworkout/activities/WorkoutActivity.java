@@ -49,11 +49,11 @@ public class WorkoutActivity extends AppCompatActivity {
         toggle = !toggle;
     }
 
-    public void startIsPressed() {
+    private void startIsPressed() {
         getWorkout().startWorkout();
     }
 
-    public void completedIsPressed() {
+    private void completedIsPressed() {
         getWorkout().stopWorkout();
     }
 
