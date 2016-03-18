@@ -1,0 +1,13 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header
+        android:fragment="com.andela.iworkout.activities.SettingsActivity$GeneralPreferenceFragment"
+        android:icon="@mipmap/pushup"
+        android:title="@string/pref_header_plan_pushup" />
+
+    <header
+        android:fragment="com.andela.iworkout.activities.SettingsActivity$NotificationPreferenceFragment"
+        android:icon="@mipmap/notification"
+        android:title="@string/pref_header_notifications" />
+
+</preference-headers>
