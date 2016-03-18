@@ -9,29 +9,20 @@ public class Settings {
     public Settings() {
     }
 
-    public static void saveTime(Context context, long value) {
+    public static boolean getPushUpMode(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("TIMEFORPU", value);
-        editor.commit();
+        return preferences.getBoolean("pushup_mode", false);
     }
 
     public static long getTime(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        int intValue = preferences.getInt("TIMEFORPU", 0);
+        long intValue = Long.valueOf(preferences.getString("set_time_of_pushup", ""));
         return (intValue < 0) ? 0 : intValue;
-    }
-
-    public static void savePushUps(Context context, int value) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("PUSHUPS", value);
-        editor.commit();
     }
 
     public static int getPushUps(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        int intValue = preferences.getInt("PUSHUPS", 0);
+        int intValue = Integer.valueOf(preferences.getString("set_number_of_pushup", ""));
         return (intValue < 0) ? 0 : intValue;
     }
 }
