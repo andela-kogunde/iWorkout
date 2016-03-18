@@ -7,21 +7,29 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <include layout="@layout/content_main" />
+            <include layout="@layout/content_main" />
+
+        </android.support.design.widget.AppBarLayout>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,26 +44,26 @@
             <Button
                 android:id="@+id/workout"
                 style="?android:attr/buttonBarButtonStyle"
-                android:textColor="@color/icons"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="launchWorkout"
                 android:background="@drawable/on_button_clicked"
-                android:text="Workout" />
+                android:onClick="launchWorkout"
+                android:text="Workout"
+                android:textColor="@color/icons" />
 
             <Button
                 android:id="@+id/analytics"
                 style="?android:attr/buttonBarButtonStyle"
-                android:textColor="@color/icons"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="launchAnalytics"
                 android:background="@drawable/on_button_clicked"
-                android:text="Analytics" />
+                android:onClick="launchAnalytics"
+                android:text="Analytics"
+                android:textColor="@color/icons" />
 
         </LinearLayout>
-    </RelativeLayout>
 
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
