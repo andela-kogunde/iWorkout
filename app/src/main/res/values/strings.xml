@@ -8,4 +8,42 @@
     <string name="timeInit">00</string>
     <string name="pushupInit">0</string>
     <string name="congratulations">Congratulations</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_plan_pushup">Plan Push Up</string>
+
+    <string name="pref_title_pushup_mode">Push Up mode</string>
+    <string name="pref_description_time_your_pushup">Turn on/off switch to toggle between push up goal and time mode.
+    </string>
+
+    <string name="pref_title_number_of_pushups">Push Up goal</string>
+    <string name="pref_default_number_of_pushups">50</string>
+
+    <string name="pref_title_time_of_pushups">Push Up time (Minutes)</string>
+    <string name="pref_default_time_of_pushups">5</string>
+
+    <string name="pref_title_Reminder">Reminder</string>
+    <string-array name="pref_reminder_list_titles">
+        <item>Daily</item>
+        <item>Every two days</item>
+        <item>Every Weekend (Saturdays)</item>
+    </string-array>
+    <string-array name="pref_reminder_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_pushup_notifications">Push Up Notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
 </resources>
