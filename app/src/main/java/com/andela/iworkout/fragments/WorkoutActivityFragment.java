@@ -31,6 +31,7 @@ public class WorkoutActivityFragment extends Fragment {
     private int counter = 0;
     private int pushUpGoal = 0;
     private int timeTaken = 0;
+    private boolean mode;
     private Day day;
 
     public WorkoutActivityFragment() {
@@ -48,6 +49,8 @@ public class WorkoutActivityFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mode = Settings.getPushUpMode(getContext());
+
         setTimeKeeper(view);
     }
 
@@ -56,10 +59,8 @@ public class WorkoutActivityFragment extends Fragment {
         final TextView pushUpKeeper = (TextView) getActivity().findViewById(R.id.pushUpKeeper);
 
         pushUpManager = new PushUpManager(getContext(), touchScreen);
-
-        pushUpGoal = 50;
-        //pushUpGoal = Settings.getPushUps(getContext());
-        if (pushUpGoal <= 0) { //PUSHUP COUNT UP TILL TIME ELAPSE
+        pushUpGoal = getPushUpMode();
+        if (pushUpGoal <= 0) {
             pushUpManager.setListener(new PushUpListener() {
                 @Override
                 public void pushUp() {
@@ -94,9 +95,8 @@ public class WorkoutActivityFragment extends Fragment {
     private void setTimeKeeper(View view) {
         final TextView timeKeeper = (TextView) view.findViewById(R.id.timeKeeper);
 
-        long timeTill = Settings.getTime(getContext());
-        //long timeTill = 100000;
-        if (timeTill <= 0) { //TIME COUNT UP TO MEET PUSHUP GOAL
+        long timeTill = getTimeMode();
+        if (timeTill <= 0) {
             timeCounter.countUp(SECONDS, new OnTimerTickListener() {
                 @Override
                 public void onTick(long millisecond) {
@@ -140,7 +140,7 @@ public class WorkoutActivityFragment extends Fragment {
 
         displayDialog();
 
-        //PLAY SOUND
+        //TODO:PLAY SOUND
     }
 
     private void displayDialog() {
@@ -179,6 +179,20 @@ public class WorkoutActivityFragment extends Fragment {
         }
 
         return DateFormatter.getReadableSeconds(milliSeconds);
+    }
+
+    private long getTimeMode() {
+        if (!mode) {
+            return Settings.getTime(getContext()) * MINUTES;
+        }
+        return 0;
+    }
+
+    private int getPushUpMode() {
+        if (mode) {
+            return Settings.getPushUps(getContext());
+        }
+        return 0;
     }
 
     private WorkoutManager getWorkoutManager() {
