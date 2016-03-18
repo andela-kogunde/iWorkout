@@ -1,0 +1,32 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="pushup_mode"
+        android:summary="@string/pref_description_time_your_pushup"
+        android:title="@string/pref_title_pushup_mode" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_number_of_pushups"
+        android:dependency="pushup_mode"
+        android:inputType="number"
+        android:key="set_number_of_pushup"
+        android:maxLength="3"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_number_of_pushups" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_time_of_pushups"
+        android:inputType="number"
+        android:key="set_time_of_pushup"
+        android:maxLength="2"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_time_of_pushups" />
+
+</PreferenceScreen>
