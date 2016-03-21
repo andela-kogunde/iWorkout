@@ -33,6 +33,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     private void manageToolbar() {
         ActionBar actionBar = getSupportActionBar();
+
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
@@ -148,6 +149,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             setHasOptionsMenu(true);
 
             bindPreferenceSummaryToValue(findPreference("notifications_pushup_ringtone"));
+            bindPreferenceSummaryToValue(findPreference("pushup_reminder"));
         }
 
         @Override
