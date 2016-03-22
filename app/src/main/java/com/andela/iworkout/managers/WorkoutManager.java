@@ -1,8 +1,12 @@
-package com.andela.iworkout.repository;
+package com.andela.iworkout.managers;
 
 
 import com.andela.iworkout.model.Day;
+import com.andela.iworkout.repository.DayRepository;
+import com.andela.iworkout.repository.DayRepositoryImplementation;
 import com.andela.iworkout.utilities.DateFormatter;
+
+import java.util.List;
 
 import io.realm.RealmResults;
 
@@ -16,6 +20,7 @@ public class WorkoutManager {
     public int totalPushUps() {
         RealmResults<Day> results = dayRepository.getAll();
         int totalPushups = 0;
+
         for (Day day : results) {
             totalPushups += day.getPushups();
         }
@@ -28,17 +33,17 @@ public class WorkoutManager {
         return day == null ? 0 : day.getPushups();
     }
 
-    public int energyGained() {
-        return 0;
-    }
-
-    public int caloriesBurned() {
-        return 0;
-    }
-
     public void savePushUps(Day day) {
         if (day != null) {
             dayRepository.insertOrUpdate(day);
         }
+    }
+
+    public List<Day> getLastFive() {
+        return dayRepository.getFromLast(5);
+    }
+
+    public List<Day> getLastSeven() {
+        return dayRepository.getFromLast(7);
     }
 }

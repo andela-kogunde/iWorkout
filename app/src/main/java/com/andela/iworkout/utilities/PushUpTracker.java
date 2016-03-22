@@ -6,10 +6,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.view.MotionEvent;
 import android.view.View;
 
-public class PushUpManager {
+public class PushUpTracker {
     private static final int PUSH_DOWN = 0;
     private static final int PUSH_UP = 1;
 
@@ -18,12 +17,12 @@ public class PushUpManager {
     private PushUpListener listener;
     private View view;
 
-    public PushUpManager(Context context) {
+    public PushUpTracker(Context context) {
         this.sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         this.sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
     }
 
-    public PushUpManager(Context context, View view) {
+    public PushUpTracker(Context context, View view) {
         this(context);
         this.view = view;
         this.view.setOnClickListener(clickListener);
