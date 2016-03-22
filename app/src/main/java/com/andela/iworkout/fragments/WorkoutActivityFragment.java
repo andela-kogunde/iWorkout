@@ -12,12 +12,12 @@ import com.andela.iworkout.R;
 import com.andela.iworkout.activities.MyApplication;
 import com.andela.iworkout.activities.WorkoutActivity;
 import com.andela.iworkout.model.Day;
-import com.andela.iworkout.repository.WorkoutManager;
+import com.andela.iworkout.managers.WorkoutManager;
 import com.andela.iworkout.utilities.DateFormatter;
 import com.andela.iworkout.utilities.MsgBox;
 import com.andela.iworkout.utilities.OnTimerTickListener;
 import com.andela.iworkout.utilities.PushUpListener;
-import com.andela.iworkout.utilities.PushUpManager;
+import com.andela.iworkout.utilities.PushUpTracker;
 import com.andela.iworkout.utilities.Settings;
 import com.andela.iworkout.utilities.TimeCounter;
 
@@ -26,7 +26,7 @@ public class WorkoutActivityFragment extends Fragment {
     private static final int MINUTES = 60000;
 
     private TimeCounter timeCounter;
-    private PushUpManager pushUpManager;
+    private PushUpTracker pushUpTracker;
     private AlertDialog alertDialog;
     private int counter = 0;
     private int pushUpGoal = 0;
@@ -58,10 +58,10 @@ public class WorkoutActivityFragment extends Fragment {
         View touchScreen = getActivity().findViewById(R.id.touchScreen);
         final TextView pushUpKeeper = (TextView) getActivity().findViewById(R.id.pushUpKeeper);
 
-        pushUpManager = new PushUpManager(getContext(), touchScreen);
+        pushUpTracker = new PushUpTracker(getContext(), touchScreen);
         pushUpGoal = getPushUpMode();
         if (pushUpGoal <= 0) {
-            pushUpManager.setListener(new PushUpListener() {
+            pushUpTracker.setListener(new PushUpListener() {
                 @Override
                 public void pushUp() {
                     pushUpKeeper.setText(String.valueOf(counter++));
@@ -73,7 +73,7 @@ public class WorkoutActivityFragment extends Fragment {
             });
         } else {
             pushUpKeeper.setText(String.valueOf(pushUpGoal));
-            pushUpManager.setListener(new PushUpListener() {
+            pushUpTracker.setListener(new PushUpListener() {
                 @Override
                 public void pushUp() {
                     counter++;
@@ -163,8 +163,9 @@ public class WorkoutActivityFragment extends Fragment {
 
     public void cancelWorkout() {
         timeCounter.stop();
-        if (pushUpManager != null) {
-            pushUpManager.disconnectPushUp();
+
+        if (pushUpTracker != null) {
+            pushUpTracker.disconnectPushUp();
         }
     }
 
