@@ -29,12 +29,12 @@
     <string-array name="pref_reminder_list_titles">
         <item>Daily</item>
         <item>Every two days</item>
-        <item>Every Weekend (Saturdays)</item>
+        <item>Every Saturdays</item>
     </string-array>
     <string-array name="pref_reminder_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
+        <item>300</item>
+        <item>200</item>
+        <item>100</item>
     </string-array>
 
     <!-- Example settings for Notifications -->
@@ -46,4 +46,5 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_analytics">Push Up Analytics</string>
 </resources>
