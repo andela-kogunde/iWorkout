@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.andela.iworkout.activities.WorkoutActivity">
+    <item
+        android:icon="@mipmap/graph"
+        android:title="Filter"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/fivedays"
+                    android:title="Last 5 Days" />
+                <item
+                    android:id="@+id/sevendays"
+                    android:title="Last 7 Days" />
+            </group>
+        </menu>
+    </item>
+</menu>
