@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.andela.iworkout.activities.MainActivity;
-import com.andela.iworkout.activities.WorkoutActivity;
-
 public class Launcher {
     public static final String TRANSPORT = "transport";
 
