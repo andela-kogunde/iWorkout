@@ -3,7 +3,7 @@ package com.andela.iworkout.activities;
 
 import android.app.Application;
 
-import com.andela.iworkout.repository.WorkoutManager;
+import com.andela.iworkout.managers.WorkoutManager;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
