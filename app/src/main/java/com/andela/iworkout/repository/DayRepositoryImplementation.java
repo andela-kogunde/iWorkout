@@ -2,6 +2,8 @@ package com.andela.iworkout.repository;
 
 import com.andela.iworkout.model.Day;
 
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -14,7 +16,19 @@ public class DayRepositoryImplementation implements DayRepository {
 
     @Override
     public RealmResults<Day> getAll() {
-        return  realm.where(Day.class).findAll();
+        return realm.where(Day.class).findAll();
+    }
+
+    @Override
+    public List<Day> getFromLast(int value) {
+        List<Day> results = realm.where(Day.class).findAll();
+        int size = results.size();
+
+        if (value > size) {
+            return results;
+        }
+
+        return results.subList(size - value, size);
     }
 
     @Override
@@ -61,5 +75,12 @@ public class DayRepositoryImplementation implements DayRepository {
         realm.beginTransaction();
         deleteAll.clear();
         realm.commitTransaction();
+    }
+
+    @Override
+    public void close() {
+        if (realm != null) {
+            realm.close();
+        }
     }
 }
