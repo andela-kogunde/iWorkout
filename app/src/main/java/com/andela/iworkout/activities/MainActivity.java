@@ -11,7 +11,6 @@ import android.view.View;
 import com.andela.iworkout.R;
 import com.andela.iworkout.fragments.MainActivityFragment;
 import com.andela.iworkout.utilities.Launcher;
-import com.andela.iworkout.utilities.MsgBox;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchAnalytics(View view) {
-        MsgBox.show(this, "Launch Analytics Screen");
+        Launcher.launchForResult(this, AnalyticsActivity.class, 1);
     }
 
     private MainActivityFragment getDashboard() {

@@ -1,29 +1,20 @@
 package com.andela.iworkout.fragments;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.andela.iworkout.R;
 import com.andela.iworkout.activities.MyApplication;
-import com.andela.iworkout.repository.DayRepository;
-import com.andela.iworkout.repository.DayRepositoryImplementation;
-import com.andela.iworkout.repository.WorkoutManager;
+import com.andela.iworkout.managers.WorkoutManager;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class MainActivityFragment extends Fragment {
-    WaveLoadingView totalPushUps;
-    WaveLoadingView todaysPushUps;
-    WaveLoadingView caloriesBurned;
-    WaveLoadingView energyGained;
-
-    public MainActivityFragment() {
-    }
+    private WaveLoadingView totalPushUps;
+    private WaveLoadingView todaysPushUps;
 
     private WorkoutManager getWorkoutManager() {
         return MyApplication.getWorkoutManager();
@@ -48,11 +39,13 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void updatePushups() {
-        totalPushUps.setCenterTitle(String.valueOf(getWorkoutManager().totalPushUps()));
+        int total = getWorkoutManager().totalPushUps();
+        totalPushUps.setCenterTitle(String.valueOf(total));
         totalPushUps.setAmplitudeRatio(70);
         totalPushUps.setProgressValue(70);
 
-        todaysPushUps.setCenterTitle(String.valueOf(getWorkoutManager().todaysPushUps()));
+        int today = getWorkoutManager().todaysPushUps();
+        todaysPushUps.setCenterTitle(String.valueOf(today));
         todaysPushUps.setAmplitudeRatio(70);
         todaysPushUps.setProgressValue(70);
     }
