@@ -15,17 +15,24 @@
     <SwitchPreference
         android:defaultValue="true"
         android:dependency="notifications_pushup"
-        android:key="notifications_new_message_vibrate"
+        android:key="notifications_pushup_vibrate"
         android:title="@string/pref_title_vibrate" />
 
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="300"
         android:dependency="notifications_pushup"
         android:entries="@array/pref_reminder_list_titles"
         android:entryValues="@array/pref_reminder_list_values"
-        android:key="reminder"
+        android:key="pushup_reminder"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="@string/pref_title_Reminder" />
+
+    <com.andela.iworkout.preferences.TimePreference
+        android:defaultValue="12:00"
+        android:dependency="notifications_pushup"
+        android:key="alarm_time"
+        android:summary="Set your desired time for push up"
+        android:title="Push Up Time" />
 
 </PreferenceScreen>
