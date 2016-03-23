@@ -1,5 +1,6 @@
 package com.andela.iworkout.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,10 @@ import android.view.View;
 
 import com.andela.iworkout.R;
 import com.andela.iworkout.fragments.MainActivityFragment;
+import com.andela.iworkout.notifications.PushUpNotificationBuilder;
+import com.andela.iworkout.notifications.PushUpNotificationManager;
 import com.andela.iworkout.utilities.Launcher;
+import com.andela.iworkout.utilities.Settings;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,11 +24,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         manageToolbar();
+
+        managePushUpNotifications(this);
     }
 
     private void manageToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+
+    private void managePushUpNotifications(Context context) {
+        PushUpNotificationManager notificationManager = new PushUpNotificationManager(context);
+        notificationManager.cancelPushUpNotifications();
+
+        if (Settings.getNotificationMode(context)) {
+            notificationManager.setPushUpNotifications(
+                    PushUpNotificationBuilder.getNotification(context));
+        }
     }
 
     @Override

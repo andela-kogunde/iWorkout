@@ -16,20 +16,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        managePushUpNotifications(this);
-
         Launcher.launch(this, MainActivity.class);
         finish();
-    }
-
-    private void managePushUpNotifications(Context context) {
-        PushUpNotificationManager notificationManager = new PushUpNotificationManager(context);
-        notificationManager.cancelPushUpNotifications();
-
-        if (Settings.getNotificationMode(context)) {
-            notificationManager.setPushUpNotifications(
-                    PushUpNotificationBuilder.getNotification(context));
-            MsgBox.show(context, "Pushup been created");
-        }
     }
 }
