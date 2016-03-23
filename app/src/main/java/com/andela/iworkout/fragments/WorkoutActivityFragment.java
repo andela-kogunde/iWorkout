@@ -53,6 +53,17 @@ public class WorkoutActivityFragment extends Fragment {
         mode = Settings.getPushUpMode(getContext());
 
         setTimeKeeper(view);
+
+        if (!Settings.getFirstLaunch(getContext())) {
+            Settings.saveFirstLaunch(getContext());
+            alertDialog = MsgBox.show(getContext(), "Workout instruction", R.drawable.how_to_use, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            }, false);
+            alertDialog.show();
+        }
     }
 
     private void setPushUpManager() {
@@ -155,7 +166,7 @@ public class WorkoutActivityFragment extends Fragment {
     }
 
     private void displayDialog() {
-        alertDialog = MsgBox.show(getContext(), getString(R.string.congratulations), new View.OnClickListener() {
+        alertDialog = MsgBox.show(getContext(), getString(R.string.congratulations), R.drawable.gift, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();

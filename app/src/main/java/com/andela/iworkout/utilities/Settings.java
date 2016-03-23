@@ -43,6 +43,18 @@ public class Settings {
         return preferences.getBoolean("notifications_pushup_vibrate", false);
     }
 
+    public static boolean getFirstLaunch(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean("first_launch", false);
+    }
+
+    public static void saveFirstLaunch(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("first_launch", true);
+        editor.commit();
+    }
+
     public static int getReminder(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         String value = preferences.getString("pushup_reminder", "");
