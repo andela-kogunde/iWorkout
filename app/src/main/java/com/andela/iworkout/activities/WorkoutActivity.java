@@ -1,12 +1,11 @@
 package com.andela.iworkout.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +15,7 @@ import com.andela.iworkout.fragments.WorkoutActivityFragment;
 
 public class WorkoutActivity extends AppCompatActivity {
     private boolean toggle = false;
+    private boolean muteToggle = false;
     private Button button;
 
     @Override
@@ -31,6 +31,43 @@ public class WorkoutActivity extends AppCompatActivity {
     private void manageToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_workout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mute:
+                muteSound(item);
+                return true;
+            case R.id.home:
+                getWorkout().cancelWorkout();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void muteSound(MenuItem item) {
+        if (muteToggle) {
+            item.setIcon(R.mipmap.unmute);
+            getWorkout().unmuteSound();
+        } else {
+            item.setIcon(R.mipmap.mute);
+            getWorkout().muteSound();
+        }
+        muteToggle = !muteToggle;
     }
 
     public void startPressed(View view) {

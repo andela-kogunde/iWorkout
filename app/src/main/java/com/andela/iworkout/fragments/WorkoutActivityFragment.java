@@ -17,6 +17,7 @@ import com.andela.iworkout.utilities.DateFormatter;
 import com.andela.iworkout.utilities.MsgBox;
 import com.andela.iworkout.utilities.OnTimerTickListener;
 import com.andela.iworkout.utilities.PushUpListener;
+import com.andela.iworkout.utilities.PushUpSoundManager;
 import com.andela.iworkout.utilities.PushUpTracker;
 import com.andela.iworkout.utilities.Settings;
 import com.andela.iworkout.utilities.TimeCounter;
@@ -65,6 +66,7 @@ public class WorkoutActivityFragment extends Fragment {
                 @Override
                 public void pushUp() {
                     pushUpKeeper.setText(String.valueOf(counter++));
+                    getPushUpSoundManager().playSound();
                 }
 
                 @Override
@@ -82,6 +84,7 @@ public class WorkoutActivityFragment extends Fragment {
                     if (pushUpGoal < 0) {
                         endPushupSession();
                     }
+                    getPushUpSoundManager().playSound();
                 }
 
                 @Override
@@ -140,7 +143,15 @@ public class WorkoutActivityFragment extends Fragment {
 
         displayDialog();
 
-        //TODO:PLAY SOUND
+        getPushUpSoundManager().completed();
+    }
+
+    public void muteSound() {
+        getPushUpSoundManager().muteSound();
+    }
+
+    public void unmuteSound() {
+        getPushUpSoundManager().unmuteSound();
     }
 
     private void displayDialog() {
@@ -167,6 +178,7 @@ public class WorkoutActivityFragment extends Fragment {
         if (pushUpTracker != null) {
             pushUpTracker.disconnectPushUp();
         }
+        getPushUpSoundManager().unmuteSound();
     }
 
     private void endPushupSession() {
@@ -198,5 +210,9 @@ public class WorkoutActivityFragment extends Fragment {
 
     private WorkoutManager getWorkoutManager() {
         return MyApplication.getWorkoutManager();
+    }
+
+    private PushUpSoundManager getPushUpSoundManager() {
+        return MyApplication.getPushUpSoundManager(getActivity());
     }
 }
