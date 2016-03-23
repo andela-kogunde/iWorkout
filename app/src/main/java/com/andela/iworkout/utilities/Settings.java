@@ -17,13 +17,13 @@ public class Settings {
 
     public static long getTime(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        long intValue = Long.valueOf(preferences.getString("set_time_of_pushup", ""));
+        long intValue = Long.valueOf(preferences.getString("set_time_of_pushup", "-1"));
         return (intValue < 0) ? 0 : intValue;
     }
 
     public static int getPushUps(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        int intValue = Integer.valueOf(preferences.getString("set_number_of_pushup", ""));
+        int intValue = Integer.valueOf(preferences.getString("set_number_of_pushup", "-1"));
         return (intValue < 0) ? 0 : intValue;
     }
 
