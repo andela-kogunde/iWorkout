@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.andela.iworkout.R;
 import com.andela.iworkout.fragments.WorkoutActivityFragment;
+import com.andela.iworkout.utilities.MsgBox;
 
 public class WorkoutActivity extends AppCompatActivity {
     private boolean toggle = false;
@@ -51,8 +52,8 @@ public class WorkoutActivity extends AppCompatActivity {
             case R.id.mute:
                 muteSound(item);
                 return true;
-            case R.id.home:
-                getWorkout().cancelWorkout();
+            case android.R.id.home:
+                onBackPressed();
                 return true;
         }
 
@@ -97,7 +98,7 @@ public class WorkoutActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         getWorkout().cancelWorkout();
-        super.onBackPressed();
+        finish();
     }
 
     private WorkoutActivityFragment getWorkout() {
