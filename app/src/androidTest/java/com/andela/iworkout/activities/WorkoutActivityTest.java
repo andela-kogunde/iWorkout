@@ -76,5 +76,4 @@ public class WorkoutActivityTest  extends ActivityInstrumentationTestCase2<Worko
         onView(withText("Congratulations")).check(matches(isDisplayed()));
         onView(withId(R.id.gotit)).perform(click());
     }
-
 }

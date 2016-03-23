@@ -63,5 +63,25 @@ public class SettingsActivityTest extends ActivityInstrumentationTestCase2<Setti
     public void testNotifications() throws Exception {
         getActivity();
         onView(withText("Notifications")).perform(click());
+
+        onView(withText("Notifications")).check(matches(isDisplayed()));
+        onView(withText("Push Up Notifications")).perform(click());
+        onView(withText("Push Up Notifications")).perform(click());
+
+        onView(withText("Ringtone")).check(matches(isDisplayed()));
+        onView(withText("Ringtone")).perform(click());
+        onView(withText("OK")).perform(click());
+
+        onView(withText("Vibrate")).check(matches(isDisplayed()));
+        onView(withText("Vibrate")).perform(click());
+        onView(withText("Vibrate")).perform(click());
+
+        onView(withText("Reminder")).check(matches(isDisplayed()));
+        onView(withText("Reminder")).perform(click());
+        onView(withText("Daily")).perform(click());
+
+        onView(withText("Push Up Time")).check(matches(isDisplayed()));
+        onView(withText("Push Up Time")).perform(click());
+        onView(withText("Set")).perform(click());
     }
 }
