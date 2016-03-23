@@ -56,7 +56,7 @@ public class WorkoutActivityFragment extends Fragment {
 
         if (!Settings.getFirstLaunch(getContext())) {
             Settings.saveFirstLaunch(getContext());
-            alertDialog = MsgBox.show(getContext(), "Workout instruction", R.drawable.how_to_use, new View.OnClickListener() {
+            alertDialog = MsgBox.show(getContext(), getString(R.string.instruction), R.drawable.how_to_use, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     alertDialog.dismiss();

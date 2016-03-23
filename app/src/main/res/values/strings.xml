@@ -47,4 +47,5 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_analytics">Push Up Analytics</string>
+    <string name="instruction">Workout instruction</string>
 </resources>

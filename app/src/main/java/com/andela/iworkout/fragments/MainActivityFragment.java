@@ -40,13 +40,14 @@ public class MainActivityFragment extends Fragment {
 
     public void updatePushups() {
         int total = getWorkoutManager().totalPushUps();
+        int ratio = total / 20;
         totalPushUps.setCenterTitle(String.valueOf(total));
-        totalPushUps.setAmplitudeRatio(70);
-        totalPushUps.setProgressValue(70);
+        totalPushUps.setAmplitudeRatio(ratio);
+        totalPushUps.setProgressValue(ratio);
 
         int today = getWorkoutManager().todaysPushUps();
         todaysPushUps.setCenterTitle(String.valueOf(today));
-        todaysPushUps.setAmplitudeRatio(70);
-        todaysPushUps.setProgressValue(70);
+        todaysPushUps.setAmplitudeRatio(today);
+        todaysPushUps.setProgressValue(today);
     }
 }
