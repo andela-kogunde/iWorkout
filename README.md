@@ -10,7 +10,7 @@ iWorkout (Checkpoint 4) is built to improve fitness levels. The basic idea is to
  ![Alt text](https://github.com/andela-kogunde/iWorkout/blob/master/app/src/main/assets/images/banner.png?raw=true "iWorkout")      
 ------------------------------------------------------------------------------------------------------------------------------
 
-The concept is very simple. iWorkout allow its user plan how they would like to organisze their push up training.
+The concept is very simple. iWorkout allow its user plan how they would like to organize their push up training.
 
 > TIME : enable users to customize the minimum time necessary for a number of push ups.
 
@@ -26,9 +26,9 @@ The concept is very simple. iWorkout allow its user plan how they would like to 
 
 Steps to start push up with iWorkout.
 > 1. Launch iWorkout app, tap workout button to switch to push up screen.
-> 2. Tap start button to begin push up.
-> 3. Begin your push up with your phone in-betwween you hands.
-> 4. As you push down, make sure your chin moves closely toward or touches your phone, doing so will help iWorkout keep track of your push ups.
+> 2. Tap start button to initiate push up.
+> 3. Begin push up with your phone placed in-between your hands.
+> 4. As you push down toward your phone, iWorkout keep track of your push ups.
 
 ----------
 
