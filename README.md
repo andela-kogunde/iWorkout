@@ -10,12 +10,19 @@ iWorkout (Checkpoint 4) is built to improve fitness levels. The basic idea is to
  ![Alt text](https://github.com/andela-kogunde/iWorkout/blob/master/app/src/main/assets/images/banner.png?raw=true "iWorkout")      
 ------------------------------------------------------------------------------------------------------------------------------
 
-The concept is very simple. iWorkout allow its user plan how they would like to organise their push up training.
+The concept is very simple. iWorkout allow its user plan how they would like to organisze their push up training.
 
 > TIME : enable users to customize the minimum time necessary for a number of push ups.
+
 > GOAL: enable users to customize minimum number of push ups to be achieved.
+
 > ANALYTICS: enable users to view a pictorial representation of their performance over the last 5 - 7 days in terms of number of push ups achieved.
+
 > REMINDER: enable users to schedule a push up session.
+
+----------
+
+ ![Alt text](https://github.com/andela-kogunde/iWorkout/blob/master/app/src/main/res/drawable/how_to_use.png?raw=true "iWorkout") 
 
 Steps to start push up with iWorkout.
 > 1. Launch iWorkout app, tap workout button to switch to push up screen.
